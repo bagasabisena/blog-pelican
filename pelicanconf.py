@@ -12,7 +12,9 @@ TIMEZONE = 'Europe/Amsterdam'
 
 DEFAULT_LANG = u'en'
 
-STATIC_PATHS = ['images', 'js', 'data']
+# static files
+STATIC_PATHS = ['images', 'js', 'data', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -41,7 +43,7 @@ GITHUB_SKIP_FORK = True
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 # ABOUT ME
-ABOUT_ME = 'Master student Computer Science in TU Delft, NL. Hope you enjoy my blog (and I\'m really sorry about the grammar)'
+ABOUT_ME = 'Master student Computer Science in TU Delft, NL.'
 AVATAR = 'images/bagas2.jpg'
 
 DEFAULT_PAGINATION = 10
