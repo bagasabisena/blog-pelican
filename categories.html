@@ -32,6 +32,24 @@
         <link href="http://www.abisena.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="abisena.me ATOM Feed"/>
 
+<!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
+<!--
+<PageMap>
+<DataObject type="document">
+<Attribute name="title">Homepage</Attribute>
+<Attribute name="author">Bagas Abisena Swastanto</Attribute>
+<Attribute name="description">A view from the afternoon</Attribute>
+<Attribute name="page_count">1</Attribute>
+<Attribute name="rating">5</Attribute>
+<Attribute name="last_update">2015-02-06T21:07:42.115716</Attribute>
+</DataObject>
+<DataObject type="thumbnail">
+<Attribute name="src" value="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" />
+<Attribute name="width" value="300" />
+<Attribute name="height" value="300" />
+</DataObject>
+</PageMap>
+-->
 </head>
 <body>
 
@@ -115,6 +133,7 @@ abisena.me            </a>
                 <li class="list-group-item"><a href="http://www.twitter.com/bagasabisena"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                 <li class="list-group-item"><a href="http://www.flickr.com/bagasabisena"><i class="fa fa-flickr fa-lg"></i> Flickr</a></li>
                 <li class="list-group-item"><a href="http://www.github.com/bagasabisena"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                <li class="list-group-item"><a href="http://www.instagram.com/bagasabisena"><i class="fa fa-instagram fa-lg"></i> Instagram</a></li>
               </ul>
             </li>
 
@@ -123,13 +142,28 @@ abisena.me            </a>
             <li class="list-group-item"><a href="http://www.abisena.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                     <li class="list-group-item tag-4">
-                        <a href="http://www.abisena.me/tag/apps.html">
-                            apps
+                        <a href="http://www.abisena.me/tag/android.html">
+                            android
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://www.abisena.me/tag/data.html">
-                            data
+                        <a href="http://www.abisena.me/tag/d3js.html">
+                            d3.js
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/data-visualization.html">
+                            data visualization
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/java.html">
+                            java
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/programming.html">
+                            programming
                         </a>
                     </li>
                 </ul>
@@ -150,10 +184,26 @@ abisena.me            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Bagas Abisena Swastanto
+         <div class="col-xs-10" id="footer-area">&copy; 2015 <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+         <!-- SEO: vcard --> 
+          <address id="hcard-Bagas-Abisena-Swastanto" class="vcard author" style="display:none">
+              <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+              <a class="fn" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+              <img src="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" alt="photo of " class="photo"/>
+              <span class="title">Software Engineer</span>
+              <span class="org">abisena.me</span>
+              <a class="url" href="http://abisena.me">abisena.me</a>
+              <!-- <a class="email" href="mailto:bagasabisena@gmail.com">bagasabisena@gmail.com</a> -->
+              <span class="address">
+                  <span class="region">Delft</span>
+                  <span class="country-name">Netherlands</span>
+              </span>
+          </address>
+          <span class="powered-by">
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>          </span>
+         </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
    </div>

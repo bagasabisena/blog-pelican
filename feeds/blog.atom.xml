@@ -31,7 +31,7 @@
 &lt;li&gt;&lt;a href="https://github.com/bagasabisena/RumpyServerWS"&gt;Server&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/bagasabisena/RumpyClient"&gt;Android client&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/bagasabisena/Stanza"&gt;Protocol&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="apps"></category></entry><entry><title>Distribution of Indonesian Student in the Netherlands</title><link href="http://www.abisena.me/distribution-of-indonesian-student-in-the-netherlands.html" rel="alternate"></link><updated>2014-11-29T00:00:00+01:00</updated><author><name>Bagas Abisena Swastanto</name></author><id>tag:www.abisena.me,2014-11-29:distribution-of-indonesian-student-in-the-netherlands.html</id><summary type="html">&lt;p&gt;Well, wise man says that first blog post should be meaningful, so here I am. Below is a simple visualization built on &lt;a href="https://www.d3js.org"&gt;awesome D3.js&lt;/a&gt;. It shows the distribution of Indonesian student in cities of Netherlands in the year of 2013. Please note that I don't own the data. The data is made by PPI Belanda (Indonesian Student Union in the Netherlands). Big thanks to Arip Muttaqien for giving me the permission to use the data. Here goes! (Oh btw you can hover the cursor on the bubble and it will show you the real percentage and the universities where the students study).&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="android"></category><category term="java"></category><category term="programming"></category></entry><entry><title>Distribution of Indonesian Student in the Netherlands</title><link href="http://www.abisena.me/distribution-of-indonesian-student-in-the-netherlands.html" rel="alternate"></link><updated>2014-11-29T00:00:00+01:00</updated><author><name>Bagas Abisena Swastanto</name></author><id>tag:www.abisena.me,2014-11-29:distribution-of-indonesian-student-in-the-netherlands.html</id><summary type="html">&lt;p&gt;Well, wise man says that first blog post should be meaningful, so here I am. Below is a simple visualization built on &lt;a href="https://www.d3js.org"&gt;awesome D3.js&lt;/a&gt;. It shows the distribution of Indonesian student in cities of Netherlands in the year of 2013. Please note that I don't own the data. The data is made by PPI Belanda (Indonesian Student Union in the Netherlands). Big thanks to Arip Muttaqien for giving me the permission to use the data. Here goes! (Oh btw you can hover the cursor on the bubble and it will show you the real percentage and the universities where the students study).&lt;/p&gt;
 &lt;style&gt;
     .place-label {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -249,4 +249,4 @@
 
 
 
-&lt;/script&gt;</summary><category term="data"></category></entry></feed>
+&lt;/script&gt;</summary><category term="data visualization"></category><category term="d3.js"></category></entry></feed>

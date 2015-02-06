@@ -14,7 +14,7 @@
 <link rel="canonical" href="http://www.abisena.me/distribution-of-indonesian-student-in-the-netherlands.html">
 
         <meta name="author" content="Bagas Abisena Swastanto" />
-        <meta name="keywords" content="data" />
+        <meta name="keywords" content="data visualization,d3.js" />
         <meta name="description" content="Well, wise man says that first blog post should be meaningful, so here I am. Below is a simple visualization built on awesome D3.js. It shows the distribution of Indonesian student in cities of Netherlands in the year of 2013. Please note that I don&#39;t own the data ..." />
 
         <meta property="og:site_name" content="abisena.me" />
@@ -24,7 +24,8 @@
         <meta property="og:description" content="Well, wise man says that first blog post should be meaningful, so here I am. Below is a simple visualization built on awesome D3.js. It shows the distribution of Indonesian student in cities of Netherlands in the year of 2013. Please note that I don&#39;t own the data ..."/>
         <meta property="article:published_time" content="2014-11-29" />
             <meta property="article:section" content="Blog" />
-            <meta property="article:tag" content="data" />
+            <meta property="article:tag" content="data visualization" />
+            <meta property="article:tag" content="d3.js" />
             <meta property="article:author" content="Bagas Abisena Swastanto" />
 
 
@@ -38,6 +39,29 @@
         <link href="http://www.abisena.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="abisena.me ATOM Feed"/>
 
+<!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
+<!--
+<PageMap>
+<DataObject type="document">
+    <Attribute name="title">Distribution of Indonesian Student in the Netherlands</Attribute>
+    <Attribute name="author">Bagas Abisena Swastanto</Attribute>
+    <Attribute name="description">Well, wise man says that first blog post should be meaningful, so here I am. Below is a simple visualization built on awesome D3.js. It shows the distribution of Indonesian student in cities of Netherlands in the year of 2013. Please note that I don't own the data ...</Attribute>
+    <Attribute name="page_count">1</Attribute>
+    <Attribute name="rating">5</Attribute>
+    <Attribute name="last_update">2014-11-29T00:00:00+01:00</Attribute>
+</DataObject>
+<DataObject type="metatags">
+    <Attribute name="category" value="Blog"/>
+        <Attribute name="category" value="data visualization"/>
+        <Attribute name="category" value="d3.js"/>
+</DataObject>
+<DataObject type="thumbnail">
+<Attribute name="src" value="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" />
+<Attribute name="width" value="300" />
+<Attribute name="height" value="300" />
+</DataObject>
+</PageMap>
+-->
 </head>
 <body>
 
@@ -106,7 +130,9 @@ abisena.me            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://www.abisena.me/tag/data.html">data</a>
+	<a href="http://www.abisena.me/tag/data-visualization.html">data visualization</a>
+        /
+	<a href="http://www.abisena.me/tag/d3js.html">d3.js</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -383,6 +409,7 @@ abisena.me            </a>
                 <li class="list-group-item"><a href="http://www.twitter.com/bagasabisena"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                 <li class="list-group-item"><a href="http://www.flickr.com/bagasabisena"><i class="fa fa-flickr fa-lg"></i> Flickr</a></li>
                 <li class="list-group-item"><a href="http://www.github.com/bagasabisena"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                <li class="list-group-item"><a href="http://www.instagram.com/bagasabisena"><i class="fa fa-instagram fa-lg"></i> Instagram</a></li>
               </ul>
             </li>
 
@@ -391,13 +418,28 @@ abisena.me            </a>
             <li class="list-group-item"><a href="http://www.abisena.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                     <li class="list-group-item tag-4">
-                        <a href="http://www.abisena.me/tag/apps.html">
-                            apps
+                        <a href="http://www.abisena.me/tag/android.html">
+                            android
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://www.abisena.me/tag/data.html">
-                            data
+                        <a href="http://www.abisena.me/tag/d3js.html">
+                            d3.js
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/data-visualization.html">
+                            data visualization
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/java.html">
+                            java
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/programming.html">
+                            programming
                         </a>
                     </li>
                 </ul>
@@ -418,10 +460,26 @@ abisena.me            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Bagas Abisena Swastanto
+         <div class="col-xs-10" id="footer-area">&copy; 2015 <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+         <!-- SEO: vcard --> 
+          <address id="hcard-Bagas-Abisena-Swastanto" class="vcard author" style="display:none">
+              <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+              <a class="fn" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+              <img src="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" alt="photo of " class="photo"/>
+              <span class="title">Software Engineer</span>
+              <span class="org">abisena.me</span>
+              <a class="url" href="http://abisena.me">abisena.me</a>
+              <!-- <a class="email" href="mailto:bagasabisena@gmail.com">bagasabisena@gmail.com</a> -->
+              <span class="address">
+                  <span class="region">Delft</span>
+                  <span class="country-name">Netherlands</span>
+              </span>
+          </address>
+          <span class="powered-by">
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>          </span>
+         </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
    </div>
