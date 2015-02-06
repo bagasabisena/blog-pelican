@@ -103,13 +103,13 @@
 
 &lt;div id="example"&gt;&lt;/div&gt;
 
-&lt;script src="/js/d3.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://d3js.org/d3.v3.min.js" charset="utf-8"&gt;&lt;/script&gt;
 
 &lt;script src="/js/topojson.v1.min.js"&gt;&lt;/script&gt;
 
-&lt;script src="/js/jquery-1.11.1.js"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
 
-&lt;script src="/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"&gt;&lt;/script&gt;
 
 &lt;script src="/js/tip.js"&gt;&lt;/script&gt;
 
