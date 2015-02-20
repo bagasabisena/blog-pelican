@@ -12,7 +12,7 @@ PATH = 'content'
 
 # PLUGINS
 PLUGIN_PATHS = ['/Users/bagas/dev/github/pelican-plugins/']
-PLUGINS = ['extended_sitemap']
+PLUGINS = ['extended_sitemap', 'pelican-flickr']
 
 # DATE TIME CONFIGURATION
 TIMEZONE = 'Europe/Amsterdam'
@@ -21,7 +21,7 @@ CURRENT_DATE = datetime.now().isoformat()
 DEFAULT_LANG = u'en'
 
 # static files
-STATIC_PATHS = ['images', 'js', 'data', 'lightbox', 'extra/CNAME', 'extra/robots.txt']
+STATIC_PATHS = ['images', 'js', 'data', 'lightbox', 'raw', 'extra/CNAME', 'extra/robots.txt']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, 'extra/robots.txt': {'path': 'robots.txt'}}
 
 # Feed generation is usually not desired when developing
@@ -76,7 +76,12 @@ FAVICON = 'theme/images/kribo.ico'
 IMAGE_PATH = 'gallery'
 THUMBNAIL_DIR = 'thumbnails'
 
-
+# Flickr Plugin
+FLICKR_API_KEY = '8f4133f9de401e93cadfc9fc5ea17ed5'
+FLICKR_API_SECRET = 'd8430ac165f59da0'
+FLICKR_USER = '128667897@N04'
+FLICKR_OUTPUT_DIRNAME = 'flickr'
+FLICKR_UPDATE = True
 
 # SITEMAP
 # EXTENDED_SITEMAP_PLUGIN = {
