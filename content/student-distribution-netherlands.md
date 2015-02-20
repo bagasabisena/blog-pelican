@@ -1,10 +1,7 @@
 Title: Distribution of Indonesian Student in the Netherlands
 Date: 2014-11-29
 Category: Blog
-<<<<<<< HEAD
-=======
 Slug: student
->>>>>>> gallery
 Tags: data visualization, d3.js
 
 Well, wise man says that first blog post should be meaningful, so here I am. Below is a simple visualization built on [awesome D3.js](https://www.d3js.org). It shows the distribution of Indonesian student in cities of Netherlands in the year of 2013. Please note that I don't own the data. The data is made by PPI Belanda (Indonesian Student Union in the Netherlands). Big thanks to Arip Muttaqien for giving me the permission to use the data. Here goes! (Oh btw you can hover the cursor on the bubble and it will show you the real percentage and the universities where the students study).
@@ -81,18 +78,15 @@ Well, wise man says that first blog post should be meaningful, so here I am. Bel
 <div id="example"></div>
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<<<<<<< HEAD
 <script src="/js/topojson.v1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="/js/tip.js"></script>
 <script src="/js/mustache.js"></script>
-=======
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.3/d3-tip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
->>>>>>> gallery
 <script id="template" type="x-tmpl-mustache">
     <div class="tip-container">
         <p style="font-size:80%">{{name}}: {{percent}}%</p>
