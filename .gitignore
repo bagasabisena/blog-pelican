@@ -2,4 +2,4 @@
 *.pyc
 *.swp
 output/
-flickr.txt
+flickr_key.py
