@@ -52,9 +52,9 @@ GITHUB_SKIP_FORK = True
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 # ABOUT ME
-ABOUT_ME = 'Master student Computer Science in TU Delft, NL.'
-AVATAR = 'images/bagas2.jpg'
-GRAVATAR_IMAGE = 'http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png'
+# ABOUT_ME = 'Master student Computer Science in TU Delft, NL.'
+# AVATAR = 'images/bagas2.jpg'
+# GRAVATAR_IMAGE = 'http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png'
 
 DEFAULT_PAGINATION = 10
 
@@ -71,6 +71,9 @@ BANNER_SUBTITLE = 'A view from the afternoon'
 
 # FAVICON
 FAVICON = 'theme/images/kribo.ico'
+
+# FLICKR PHOTOS
+FLICKR_SHOW = True
 
 # SITEMAP
 # EXTENDED_SITEMAP_PLUGIN = {
