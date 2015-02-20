@@ -1,8 +1,14 @@
 Title: Rumpy, a (Supposedly) Multiplatform Chat App
 Date: 2015-1-30
 Category: Blog
+<<<<<<< HEAD
 Tags: android, java, programming
 og_image: images/rumpy/screenshot3.png
+=======
+Slug: rumpy
+Tags: android, java, programming
+
+>>>>>>> gallery
 
 Rumpy is a hobby project that I developed as an escape from a boring on-the-job training back in 2012. The name Rumpy was chosen from Indonesian word 'rumpi' which means chit-chat. It was my first programming project that I did while I was learning to code. I always wanted to know how to program, so it was the perfect time to start. 
 
