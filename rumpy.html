@@ -29,6 +29,8 @@
             <meta property="article:tag" content="java" />
             <meta property="article:tag" content="programming" />
             <meta property="article:author" content="Bagas Abisena Swastanto" />
+            <meta property="og:image"
+                  content="http://www.abisena.me/images/rumpy/screenshot3.png"/>
 
 
     <!-- Bootstrap -->
@@ -58,12 +60,6 @@
         <Attribute name="category" value="java"/>
         <Attribute name="category" value="programming"/>
 </DataObject>
-<DataObject type="thumbnail">
-<Attribute name="src" value="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" />
-<Attribute name="width" value="300" />
-<Attribute name="height" value="300" />
-</DataObject>
-</PageMap>
 -->
 </head>
 <body>
@@ -145,15 +141,15 @@ abisena.me            </a>
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p>Rumpy is a hobby project that I developed as an escape from a boring on-the-job training back in 2012. The name Rumpy was chosen from Indonesian word 'rumpi' which means chit-chat. It was my first programming project that I did while I was learning to code. I always wanted to know how to program, so it was the perfect time to start. </p>
-<p>2012 was a time where Blackberry and its Messenger app took reign in Indonesia. I got me thinking for some time, why don't we roll-out our own version of chat service? Why should we rely on others infrastructure and pay monthly cost to them? Those naive idealistic thought drove me to the idea of a multiplatform chat service for my first coding project, and so Rumpy was born.</p>
+<p>2012 was a time where Blackberry and its Messenger app took reign in Indonesia. It got me thinking for some time, why don't we roll-out our own version of chat service? Why should we rely on others infrastructure and pay monthly cost to them? Those naive idealistic thoughts drove me to the idea of a multiplatform chat service for my first coding project, and so Rumpy was born.</p>
 <p>In order to make chat service, you need to develop three things:</p>
 <ul>
-<li>First, of course the app. The idea is multiplatform, client application in Android and iOS are mandatory.</li>
+<li>First, of course the app. The idea is multiplatform, so, client application for Android and iOS are mandatory.</li>
 <li>Second, the server. It has to be able to pass message between users.</li>
-<li>Lastly, the protocol. The client and server has to talk with a mutual understanding.</li>
+<li>Lastly, the protocol. The client and server have to talk with a mutual understanding.</li>
 </ul>
 <p>It sounds simple in my head but when it comes to actual implementation, it is a whole different level. </p>
-<p>Building a good Android app alone is delicate enough especially when you are still scratching your head from learning data structure, OOP, design pattern, and so on while fixing the error on syntax. Then you had to design and develop the server which was far more complex than the app. </p>
+<p>Building a good Android app alone is delicate enough especially when you are still scratching your head from learning data structure, OOP, design pattern, and so on while fixing the error on syntax. Then you have to design and develop the server which is far more complex than the app. </p>
 <p>At the end the project was, well.. unfinished. No, it is not worth <a href="http://time.com/3477028/facebook-whatsapp-19-billion-dollar-deal/">$20 billion like WhatsApp</a>. The app didn't even arrive at Google Play. But wait, wait! Don't leave my blog just yet. At least it is not for nothing, okay.</p>
 <p>Rumpy did work at some level. Through the android app I could send message back and forth (as long as the server is up). And it also had delivered and read receipt which was a big deal at the time. Don't believe me? I have the screenshots (and the code) below.</p>
 <p><img alt="" src="/images/rumpy/splash.jpg" />
@@ -215,15 +211,33 @@ abisena.me            </a>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-<div id="aboutme">
+<style>
+  p#flickr-title {
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+  }
+</style>
+
+<div id="flickr">
+        <h4><i class="fa fa-camera fa-lg"></i><span class="icon-label">Random Photograph</span></h4>
         <p>
-            <img width="100%" class="img-thumbnail" src="http://www.abisena.me/images/bagas2.jpg"/>
+            <a id='flickr-link' target="_blank" href="/"><img width="100%" class="img-thumbnail" id="flickr-thumbnail"/></a>
+            <p id='flickr-title'></p>
         </p>
-    <p>
-        <strong>About Bagas Abisena Swastanto</strong><br/>
-        Master student Computer Science in TU Delft, NL.
-    </p>
 </div>
+
+<script src="http://www.abisena.me/theme/js/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('http://www.abisena.me/images/flickr/photos.json', function(data) {
+        var randomPhoto = data[Math.floor(Math.random()*data.length)];
+        $('#flickr-thumbnail').attr('src', 'http://www.abisena.me/images/flickr/' + randomPhoto.id + '.jpg');
+        $('#flickr-title').text(randomPhoto.title);
+        $('#flickr-link').attr('href', randomPhoto.url);
+      });
+  });
+</script>
 <section class="well well-sm">
     <ul class="list-group list-group-flush">
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
@@ -287,7 +301,7 @@ abisena.me            </a>
           <address id="hcard-Bagas-Abisena-Swastanto" class="vcard author" style="display:none">
               <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
               <a class="fn" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
-              <img src="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" alt="photo of " class="photo"/>
+              <img src="" alt="photo of " class="photo"/>
               <span class="title">Software Engineer</span>
               <span class="org">abisena.me</span>
               <a class="url" href="http://abisena.me">abisena.me</a>

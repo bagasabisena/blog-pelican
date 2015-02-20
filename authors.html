@@ -42,14 +42,8 @@
 <Attribute name="description">A view from the afternoon</Attribute>
 <Attribute name="page_count">1</Attribute>
 <Attribute name="rating">5</Attribute>
-<Attribute name="last_update">2015-02-20T12:03:42.167731</Attribute>
+<Attribute name="last_update">2015-02-20T21:43:44.686902</Attribute>
 </DataObject>
-<DataObject type="thumbnail">
-<Attribute name="src" value="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" />
-<Attribute name="width" value="300" />
-<Attribute name="height" value="300" />
-</DataObject>
-</PageMap>
 -->
 </head>
 <body>
@@ -104,15 +98,33 @@ abisena.me            </a>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-<div id="aboutme">
+<style>
+  p#flickr-title {
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+  }
+</style>
+
+<div id="flickr">
+        <h4><i class="fa fa-camera fa-lg"></i><span class="icon-label">Random Photograph</span></h4>
         <p>
-            <img width="100%" class="img-thumbnail" src="http://www.abisena.me/images/bagas2.jpg"/>
+            <a id='flickr-link' target="_blank" href="/"><img width="100%" class="img-thumbnail" id="flickr-thumbnail"/></a>
+            <p id='flickr-title'></p>
         </p>
-    <p>
-        <strong>About Bagas Abisena Swastanto</strong><br/>
-        Master student Computer Science in TU Delft, NL.
-    </p>
 </div>
+
+<script src="http://www.abisena.me/theme/js/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $.getJSON('http://www.abisena.me/images/flickr/photos.json', function(data) {
+        var randomPhoto = data[Math.floor(Math.random()*data.length)];
+        $('#flickr-thumbnail').attr('src', 'http://www.abisena.me/images/flickr/' + randomPhoto.id + '.jpg');
+        $('#flickr-title').text(randomPhoto.title);
+        $('#flickr-link').attr('href', randomPhoto.url);
+      });
+  });
+</script>
 <section class="well well-sm">
     <ul class="list-group list-group-flush">
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
@@ -176,7 +188,7 @@ abisena.me            </a>
           <address id="hcard-Bagas-Abisena-Swastanto" class="vcard author" style="display:none">
               <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
               <a class="fn" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
-              <img src="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" alt="photo of " class="photo"/>
+              <img src="" alt="photo of " class="photo"/>
               <span class="title">Software Engineer</span>
               <span class="org">abisena.me</span>
               <a class="url" href="http://abisena.me">abisena.me</a>

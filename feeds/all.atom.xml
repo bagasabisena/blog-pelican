@@ -524,15 +524,15 @@ function getLength(branch) {
 }
 
 &lt;/script&gt;</summary><category term="data visualization"></category><category term="d3.js"></category></entry><entry><title>Rumpy, a (Supposedly) Multiplatform Chat App</title><link href="http://www.abisena.me/rumpy.html" rel="alternate"></link><updated>2015-01-30T00:00:00+01:00</updated><author><name>Bagas Abisena Swastanto</name></author><id>tag:www.abisena.me,2015-01-30:rumpy.html</id><summary type="html">&lt;p&gt;Rumpy is a hobby project that I developed as an escape from a boring on-the-job training back in 2012. The name Rumpy was chosen from Indonesian word 'rumpi' which means chit-chat. It was my first programming project that I did while I was learning to code. I always wanted to know how to program, so it was the perfect time to start. &lt;/p&gt;
-&lt;p&gt;2012 was a time where Blackberry and its Messenger app took reign in Indonesia. I got me thinking for some time, why don't we roll-out our own version of chat service? Why should we rely on others infrastructure and pay monthly cost to them? Those naive idealistic thought drove me to the idea of a multiplatform chat service for my first coding project, and so Rumpy was born.&lt;/p&gt;
+&lt;p&gt;2012 was a time where Blackberry and its Messenger app took reign in Indonesia. It got me thinking for some time, why don't we roll-out our own version of chat service? Why should we rely on others infrastructure and pay monthly cost to them? Those naive idealistic thoughts drove me to the idea of a multiplatform chat service for my first coding project, and so Rumpy was born.&lt;/p&gt;
 &lt;p&gt;In order to make chat service, you need to develop three things:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;First, of course the app. The idea is multiplatform, client application in Android and iOS are mandatory.&lt;/li&gt;
+&lt;li&gt;First, of course the app. The idea is multiplatform, so, client application for Android and iOS are mandatory.&lt;/li&gt;
 &lt;li&gt;Second, the server. It has to be able to pass message between users.&lt;/li&gt;
-&lt;li&gt;Lastly, the protocol. The client and server has to talk with a mutual understanding.&lt;/li&gt;
+&lt;li&gt;Lastly, the protocol. The client and server have to talk with a mutual understanding.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It sounds simple in my head but when it comes to actual implementation, it is a whole different level. &lt;/p&gt;
-&lt;p&gt;Building a good Android app alone is delicate enough especially when you are still scratching your head from learning data structure, OOP, design pattern, and so on while fixing the error on syntax. Then you had to design and develop the server which was far more complex than the app. &lt;/p&gt;
+&lt;p&gt;Building a good Android app alone is delicate enough especially when you are still scratching your head from learning data structure, OOP, design pattern, and so on while fixing the error on syntax. Then you have to design and develop the server which is far more complex than the app. &lt;/p&gt;
 &lt;p&gt;At the end the project was, well.. unfinished. No, it is not worth &lt;a href="http://time.com/3477028/facebook-whatsapp-19-billion-dollar-deal/"&gt;$20 billion like WhatsApp&lt;/a&gt;. The app didn't even arrive at Google Play. But wait, wait! Don't leave my blog just yet. At least it is not for nothing, okay.&lt;/p&gt;
 &lt;p&gt;Rumpy did work at some level. Through the android app I could send message back and forth (as long as the server is up). And it also had delivered and read receipt which was a big deal at the time. Don't believe me? I have the screenshots (and the code) below.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="/images/rumpy/splash.jpg" /&gt;
@@ -628,6 +628,16 @@ function getLength(branch) {
 &lt;div id="example"&gt;&lt;/div&gt;
 
 &lt;script src="http://d3js.org/d3.v3.min.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;script src="/js/topojson.v1.min.js"&gt;&lt;/script&gt;
+
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"&gt;&lt;/script&gt;
+
+&lt;script src="/js/tip.js"&gt;&lt;/script&gt;
+
+&lt;script src="/js/mustache.js"&gt;&lt;/script&gt;
 
 &lt;script src="http://d3js.org/topojson.v1.min.js"&gt;&lt;/script&gt;
 
