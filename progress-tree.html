@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Progress Tree - abisena.me</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="NbKt5euSFIfABqAUhtAPBSYQ0ck9eiCoKczzp4MURzY" />
+
+
+    <link href="http://www.abisena.me/theme/images/kribo.ico" rel="icon">
+
+<link rel="canonical" href="http://www.abisena.me/progress-tree.html">
+
+        <meta name="author" content="Bagas Abisena Swastanto" />
+        <meta name="keywords" content="data visualization,d3.js" />
+        <meta name="description" content="It is my final assignment project for data visualization course that I take in my master. I made it with my project partner Mahesh Nayak. We think of an alternative visualization of progress bar. Instead of bland, well, bar, we believe that it would be nicer if progress is visualized ..." />
+
+        <meta property="og:site_name" content="abisena.me" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Progress Tree"/>
+        <meta property="og:url" content="http://www.abisena.me/progress-tree.html"/>
+        <meta property="og:description" content="It is my final assignment project for data visualization course that I take in my master. I made it with my project partner Mahesh Nayak. We think of an alternative visualization of progress bar. Instead of bland, well, bar, we believe that it would be nicer if progress is visualized ..."/>
+        <meta property="article:published_time" content="2015-02-20" />
+            <meta property="article:section" content="Blog" />
+            <meta property="article:tag" content="data visualization" />
+            <meta property="article:tag" content="d3.js" />
+            <meta property="article:author" content="Bagas Abisena Swastanto" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.abisena.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+    <link href="http://www.abisena.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.abisena.me/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.abisena.me/theme/css/style.css" type="text/css"/>
+
+        <link href="http://www.abisena.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="abisena.me ATOM Feed"/>
+
+<!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
+<!--
+<PageMap>
+<DataObject type="document">
+    <Attribute name="title">Progress Tree</Attribute>
+    <Attribute name="author">Bagas Abisena Swastanto</Attribute>
+    <Attribute name="description">It is my final assignment project for data visualization course that I take in my master. I made it with my project partner Mahesh Nayak. We think of an alternative visualization of progress bar. Instead of bland, well, bar, we believe that it would be nicer if progress is visualized ...</Attribute>
+    <Attribute name="page_count">1</Attribute>
+    <Attribute name="rating">5</Attribute>
+    <Attribute name="last_update">2015-02-20T00:00:00+01:00</Attribute>
+</DataObject>
+<DataObject type="metatags">
+    <Attribute name="category" value="Blog"/>
+        <Attribute name="category" value="data visualization"/>
+        <Attribute name="category" value="d3.js"/>
+</DataObject>
+<DataObject type="thumbnail">
+<Attribute name="src" value="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" />
+<Attribute name="width" value="300" />
+<Attribute name="height" value="300" />
+</DataObject>
+</PageMap>
+-->
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://www.abisena.me/" class="navbar-brand">
+abisena.me            </a>
+            <!-- <div class="navbar-brand">
+                <a href="http://www.abisena.me/" class="site-avatar">
+                </a>
+                <div class="site-info">
+                    <h1 class="site-name"><a href="http://www.abisena.me/">Bagas Abisena Swastanto</a></h1>
+                    <p class="site-description">abisena.me</p>
+                </div>
+            </div>  -->
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://www.abisena.me/pages/about-me.html">
+                             About me
+                          </a></li>
+                         <li><a href="http://www.abisena.me/pages/resume.html">
+                             Resume
+                          </a></li>
+                        <li class="active">
+                            <a href="http://www.abisena.me/category/blog.html">Blog</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.abisena.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://www.abisena.me/progress-tree.html"
+                       rel="bookmark"
+                       title="Permalink to Progress Tree">
+                        Progress Tree
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-02-20T00:00:00+01:00"> Fri 20 February 2015</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.abisena.me/tag/data-visualization.html">data visualization</a>
+        /
+	<a href="http://www.abisena.me/tag/d3js.html">d3.js</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>It is my final assignment project for data visualization course that I take in my master. I made it with my project partner <strong>Mahesh Nayak</strong>. We think of an alternative visualization of progress bar. </p>
+<p>Instead of bland, well, bar, we believe that it would be nicer if progress is visualized with something that has emotion. Inspired by a dull, lifeless tree in the winter, we make an metaphor of progress by a growing leaves in a tree at spring season. We hope that the visual metaphor will add emotional feeling to the user and help projects such as fund solicitation or petition campaign. Every contribution to the campaign will be honored as one leaf that grows in the tree.</p>
+<p>It is still not perfect as there are many shortcoming in the design, but is functional. You can view the code on <a href="http://www.github.com/bagasabisena/progress-tree">github</a> or on <a href="https://gist.github.com/bagasabisena/58ce73a2b9b8cb49c086">gist</a>.</p>
+<p>Below is the demo of the tree. You can also view on new window <a href="http://bl.ocks.org/bagasabisena/raw/58ce73a2b9b8cb49c086/">here</a></p>
+<hr />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+
+<style type="text/css">
+/*#content {
+    padding-left: 50px;
+    padding-top: 100px;
+}*/
+/*#svgArea {
+    display: block;
+}*/
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center;                          
+  padding: 5px;  
+  color: #fff;           
+  font: 12px sans-serif;  
+  /*font-weight: bold;      */
+  background: rgba(0, 0, 0, 0.9);;   
+  border: 2px;      
+  border-radius: 10px;           
+  pointer-events: none;
+  margin: 20px         
+}
+
+div.tooltip p{
+    text-align: left;
+}
+div.tooltip h1{
+    text-align: left;
+}
+
+</style>
+
+<div class="row">
+    <div class="b" id ="svgArea">
+    <button class="btn btn-primary" id='donate' type="submit">Donate</button>
+        <button class="btn btn-success" id='animate' type="submit">Animate</button>
+        <button class="btn btn-danger" id='atonce' type="submit">At Once</button>
+        <button class="btn btn-info" id='increment' type='submit'>Increment</button>
+        <svg
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:cc="http://creativecommons.org/ns#"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:svg="http://www.w3.org/2000/svg"
+           xmlns="http://www.w3.org/2000/svg"
+           xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+           xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+           width="186.32976"
+           height="170.42111"
+           id="svg1901"
+           sodipodi:version="0.32"
+           inkscape:version="0.46+pre4"
+           sodipodi:docname="leaf.svg"
+           sodipodi:docbase="C:\Important\svg"
+           inkscape:output_extension="org.inkscape.output.svg.inkscape"
+           version="1.0">
+          <defs>
+                <g
+                    inkscape:label="Taso 1"
+                    inkscape:groupmode="layer"
+                    id="layer1"
+                    transform="scale(0.1) rotate(132 355 210)">
+                    <path
+                        style="fill-rule:evenodd;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                        d="M 422.27292,632.34394 C 432.85918,616.61295 448.34076,612.0402 448.34076,612.0402 C 448.34076,612.0402 442.54386,606.55398 439.22989,607.84521 C 426.2285,617.56064 419.44945,629.60334 419.44945,629.60334 C 266.27427,623.18356 285.91787,686.20064 265.011,767.7044 C 381.6304,796.72098 433.42735,737.61667 422.27292,632.34394 z"
+                        id="path2159"
+                        sodipodi:nodetypes="cccccc" />
+                </g>
+          </defs>
+          <sodipodi:namedview
+             id="base"
+             pagecolor="#ffffff"
+             bordercolor="#666666"
+             borderopacity="1.0"
+             inkscape:pageopacity="0.0"
+             inkscape:pageshadow="2"
+             inkscape:zoom="0.7"
+             inkscape:cx="205.81395"
+             inkscape:cy="-68.376196"
+             inkscape:document-units="px"
+             inkscape:current-layer="layer1"
+             gridtolerance="10000"
+             inkscape:window-width="1280"
+             inkscape:window-height="938"
+             inkscape:window-x="-4"
+             inkscape:window-y="-4"
+             showguides="true"
+             inkscape:guide-bbox="true"
+             showgrid="false" />
+          <metadata
+             id="metadata1906">
+            <rdf:RDF>
+              <cc:Work
+                 rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+        </svg>
+    </div>
+    <div class="a" id="content">
+        <!-- <h1>Make a change</h1>
+        <p>Save the Children has been working to fight hunger, prevent malnutrition and improve the lives of boys and girls in Africa since 1963. Whether we are working with orphaned children in sub-Saharan Africa or emergency relief for refugees in North Africa, Save the Children strives to meet the needs to vulnerable children and their families with lifesaving and life-changing programs. Charities can make a difference, with a hand-up, not a handout.</p>
+
+        Please enter your name: <input type="text" class="form-control" id="field-name" name="name"><br>
+        Amount you wish to donate: <input type="text" class="form-control" id="field-amount" name="amount"><br>
+
+        <button class="btn btn-primary" id='donate' type="submit">Donate</button>
+        <button class="btn btn-success" id='animate' type="submit">Animate</button>
+        <button class="btn btn-danger" id='atonce' type="submit">At Once</button>
+        <button class="btn btn-info" id='increment' type='submit'>Increment</button> -->
+    </div>
+
+</div>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>
+
+var branches = [];
+var leaves = [];
+var seedWidth = 75;
+var maxDepth = 9;
+
+function degToRad(degree) {
+    return degree*Math.PI/180;
+}
+
+function radToDeg(radian) {
+    return radian*180/Math.PI
+}
+
+// transform angle with y axis as a basis. so 0 degree means vertical
+function normalizeAngle(rad) {
+    return degToRad(90)+rad;
+}
+
+// transform angle with x axis as basis like normal polar coordinate
+function denormalizeAngle(rad) {
+    return rad - degToRad(90);
+}
+
+// Tree creation functions
+function branch(b) {
+    var end = endPt(b), daR, newB, da, dl, aRand, node, id;
+
+    branches.push(b);
+
+    // first branch has 0.5 scaling factor while the other branch 0.8
+    if (b.depth >= 0 && b.depth < 1) {
+        dl = 0.5;
+    } else {
+        dl = 0.75;
+    }
+
+    // Randomized length of branch
+    lRand = 0.15;
+    lRand = Math.random() * (lRand);
+
+    // change the branch angle depending on the depth of the branch
+    if (b.depth < 3) {
+            da = degToRad(30);
+            aRand = degToRad(10);
+        } else if (b.depth < 6) {
+            da = degToRad(20);
+            aRand = degToRad(10);
+        } else {
+            da = degToRad(20);
+            aRand = degToRad(5);
+        }
+
+    // stop making new branch on maximum depth and make the last branches indicator for the leaves
+    if (b.depth === maxDepth) {
+        b.visible = false;
+        b.leafId = leaves.length;
+        leaves.push(b);
+        return;
+    }
+
+
+    // create node array, contains id of branch that has been traversed by the branch
+    node = [];
+    node.push(b.i);
+    node = node.concat(b.node);
+
+    // Left branch
+    daR = Math.random() * (aRand + aRand) - aRand; //random angle between -aRand and aRand
+    newB = {
+        i: branches.length,
+        x: end.x,
+        y: end.y,
+        angle: b.angle + da + daR,
+        length: b.length * (dl + lRand),
+        depth: b.depth + 1,
+        parent: b.i,
+        node: node,
+        dl: dl,
+        da: radToDeg(da),
+        aRand: aRand
+    };
+    branch(newB);
+
+    // Right branch
+    daR = Math.random() * (aRand + aRand) - aRand; //random angle between -aRand and aRand
+    newB = {
+        i: branches.length,
+        x: end.x, 
+        y: end.y, 
+        angle: b.angle - da + daR, 
+        length: b.length * (dl + lRand), 
+        depth: b.depth + 1,
+        parent: b.i,
+        node: node,
+        dl: dl,
+        da: radToDeg(da),
+        aRand: aRand
+    };
+    branch(newB);
+}
+
+// compute end point of branch (x2,y2)
+function endPt(b) {
+    // Return endpoint of branch
+    var x = b.x + b.length * Math.cos( normalizeAngle(b.angle) );
+    var y = b.y - b.length * Math.sin( normalizeAngle(b.angle) );
+    return {x: x, y: y};
+}
+
+// define svg for placeholder
+var width = 800;
+var height = 800;
+var svg = d3.select("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr('viewBox', '0 0 ' + width + ' ' + height);
+
+// First branch configuration
+var seed = {i: 0, x: 10, y: 20, angle: 0, length: 1, depth: 0, node: [], dl:0.5};
+
+// return scaled up of (x1,y1) and (x2,y2) of a branch for svg rendering
+function x1(d) {return xScale(d.x);}
+function y1(d) {return yScale(d.y);}
+function x2(d) {return xScale(endPt(d).x);}
+function y2(d) {return yScale(endPt(d).y);}
+
+// show tooltip when mouseover the branch and leaf
+function showToolTip(d)
+{
+    var branchID = d.i;
+    var totalAmount = 0;
+
+    //for all leaves => find leaves with node array containing id == d.id
+    leaves.forEach(function(d){
+        var index = d.node.indexOf(branchID);
+
+        if (index != -1)
+        {
+            if (typeof d.amount != 'undefined')
+            {
+                totalAmount += +d.amount;    
+            }
+        }
+    })
+
+    tooltip.transition().duration(200).style("opacity", 1);      
+
+    tooltip.html("<h4>branch name:"+ d.i + "</h4>" + "<h4>amount: "+ totalAmount + "</h4>")  
+      .style("left", (d3.event.pageX) + "px")     
+      .style("top", (d3.event.pageY - 28) + "px");
+
+    highlightParents(d);
+}
+
+// highlight branches on mouseover and mouseout
+function highlightParents(d) {
+    var colour = d3.event.type === 'mouseover' ? '#CDBA96' : '#470000';
+    var depth = d.depth;
+    for(var i = 0; i <= depth; i++) {
+        d3.select('#id-'+parseInt(d.i)).style('stroke', colour);
+        d = branches[d.parent];
+    }   
+}
+
+// hightlight leaf to green on mouseover while keep the other leaf greyed out
+function highlightLeaf(d,i) {
+    svg.selectAll('use')
+        .style('fill', 'grey');
+
+    svg.select('use#id-'+ i)
+        .style('fill', 'green');
+} 
+
+// the process of making branches. Will stop at maxDepth
+branch(seed);
+
+// scaling depend on the width and height of svg
+var xMax = Math.max.apply(null, branches.map(function(element){return element.x}));
+var xMin = Math.min.apply(null, branches.map(function(element){return element.x}));
+var yMax = Math.max.apply(null, branches.map(function(element){return element.y}));
+var yMin = Math.min.apply(null, branches.map(function(element){return element.y}));
+
+// an ugly hack to leave room for leave to grow inside the svg container
+// so that the leaf is not cut out of the svg
+var leafWidth = 0.8;
+
+var xScale = d3.scale.linear()
+        .domain([xMin-leafWidth, xMax+leafWidth])
+        .range([0, width]);
+
+var yScale = d3.scale.linear()
+        .domain([yMin-leafWidth, yMax+leafWidth])
+        .range([0, height]);
+
+// svg rendering of the branches
+svg.selectAll('line')
+    .data(branches)
+    .enter()
+    .append('line')
+    .attr('x1', x1)
+    .attr('y1', y1)
+    .attr('x2', x2)
+    .attr('y2', y2)
+    .attr('stroke', '#470000')
+    .style('stroke-width', function(d){
+        var x2 = xScale(endPt(d).x);
+        var y2 = yScale(endPt(d).y);
+        var x1 = xScale(d.x);
+        var y1 = yScale(d.y);
+        var length = Math.pow(Math.pow((x2-x1),2)+Math.pow((y2-y1),2),0.5);
+        var width = treeWidth(length,d.depth);
+        return width < 1 ? parseInt(1) + 'px' : parseInt(width) + 'px';
+    })
+    .style('stroke-linecap', 'round')
+    .attr('id', function(d) {return 'id-'+d.i;})
+    .on('mouseover', showToolTip)
+    .on("mouseout", function(d) {       
+            tooltip.transition()        
+                .duration(500)      
+                .style("opacity", 0);
+                highlightParents(d);
+            });
+
+// change this number to change the size of the leaf
+leafScale(1);
+
+// add tooltip to page
+var tooltip = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+// svg rendering of leaf
+svg.selectAll('use')
+    .data(leaves)
+    .enter()
+    .append('use')
+    .attr('x', x2)
+    .attr('y', y2)
+    .attr('id', function(d,i){return 'id-' + i})
+    .attr('transform', function(d){ return 'rotate(' + radToDeg(-d.angle) + ' ' + xScale(endPt(d).x) + ' ' + yScale(endPt(d).y) + ')';})
+    .attr("xlink:href", "#layer1")
+    .attr('style', 'fill:green;stroke:black')
+    .attr('visibility', function(d){
+         return d.visible ? 'visible' : 'hidden'
+    })
+    .on("mouseover", function(d,i) {      
+        tooltip.transition().duration(200).style("opacity", 1);      
+        tooltip.html("<h4>name:         "+ d.name + "</h4>" + "<h4>amount: "+ d.amount + "</h4>")  
+          .style("left", (d3.event.pageX) + "px")     
+          .style("top", (d3.event.pageY - 28) + "px");
+          highlightLeaf(d,i);
+    })
+    .on("mouseout", function(d) {       
+            tooltip.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+            svg.selectAll('use')
+                .style('fill', 'green');
+            });
+
+// another hack to hide rounded line of first branch (the trunk)
+var trunk = branches[0];
+svg.append('rect')
+    .attr('height', getLength(trunk)*0.3)
+    .attr('width', width)
+    .attr('x', 0)
+    .attr('y', yScale(trunk.y))
+    .attr('fill', 'white');
+
+// handle click event of buttons
+d3.select('#donate').on('click', update);
+d3.select('#animate').on('click', animate);
+d3.select('#atonce').on('click', atonce);
+d3.select('#increment').on('click', incrementalFill);
+
+function update() {
+
+    console.log('btn clicked')
+    var name = $('#field-name').val();
+    var amount = $('#field-amount').val();
+
+    var leavesCopy = leaves.map(function(d){return d.leafId});
+    console.log(leavesCopy)
+
+    var randIndex = Math.random() * leavesCopy.length;
+    randIndex = Math.floor(randIndex);
+
+    var removed = leavesCopy.splice(randIndex, 1)[0];
+
+    leaves[removed].visible = true;
+
+    leaves[removed].name = name;
+    leaves[removed].amount = amount;
+
+    svg
+        .select('use#id-' + removed)
+        //.data(leaves)
+        .transition()
+        .delay(200)
+        .attr('visibility', function(d){return d.visible ? 'visible' : 'hidden'});
+}
+
+
+function randomFill()
+{
+    var halfFull = leaves.length / 4;
+
+    for (i = 0; i < halfFull; i++)
+    {
+        var randIndex = Math.random() * leaves.length;
+        randIndex = Math.round(randIndex);
+
+        leaves[randIndex].visible = true;
+
+        leaves[randIndex].name = "name";
+        leaves[randIndex].amount = "amount";
+        console.log(leaves[numOfClick]);
+
+        svg
+            .select('use')
+            //.data(leaves)
+            .transition()
+            .attr('visibility', function(d){return d.visible ? 'visible' : 'hidden'});
+        }
+}
+
+var increment = 0;
+var leavesCopy = leaves.map(function(d){return d.leafId});
+var quarter = leavesCopy.length*0.25;
+
+function incrementalFill() {
+    increment++;
+
+    console.log(quarter);
+    console.log(leavesCopy.length);
+
+    for (i=0;i<quarter;i++) {
+        var randIndex = Math.random() * leavesCopy.length;
+        randIndex = Math.floor(randIndex);
+        var removed = leavesCopy.splice(randIndex, 1)[0];
+        leaves[removed].visible = true;
+    }
+
+    svg.selectAll('use')
+        .transition()
+        .attr('visibility', function(d){return d.visible ? 'visible' : 'hidden'});
+
+
+}
+
+function animate() {
+    for (i = 0; i < leaves.length; i++) {
+        setTimeout(function(i) {
+            leaves[i].visible = true;
+            svg
+                .selectAll('use#id-'+i)
+                .data(leaves)
+                .transition()
+                .attr('visibility', function(d){return d.visible ? 'visible' : 'hidden'});
+        }, 100, i);
+
+
+    }
+}
+
+function atonce() {
+    leaves.forEach(function(d){
+        d.visible = true;
+    })
+    svg
+        .selectAll('use')
+        .data(leaves)
+        .transition()
+        .attr('visibility', function(d){return d.visible ? 'visible' : 'hidden'});
+}
+
+function leafScale(scale) {
+    d3.select('g#layer1')
+        .attr('transform', 'scale(' + scale*0.1 + ') rotate(132 355 210)');
+}
+
+function treeWidth(length,depth) {
+    return depth === 0 ? (0.4059*length-8.1419)*0.73 : 0.4059*length-8.1419;
+}
+
+function getLength(branch) {
+    var x2 = xScale(endPt(branch).x);
+    var y2 = yScale(endPt(branch).y);
+    var x1 = xScale(branch.x);
+    var y1 = yScale(branch.y);
+    return Math.pow(Math.pow((x2-x1),2)+Math.pow((y2-y1),2),0.5);
+}
+
+</script>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bagasabisena'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'progress-tree';
+                var disqus_url = 'http://www.abisena.me/progress-tree.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="http://www.abisena.me/images/bagas2.jpg"/>
+        </p>
+    <p>
+        <strong>About Bagas Abisena Swastanto</strong><br/>
+        Master student Computer Science in TU Delft, NL.
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://www.twitter.com/bagasabisena"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                <li class="list-group-item"><a href="http://www.flickr.com/bagasabisena"><i class="fa fa-flickr fa-lg"></i> Flickr</a></li>
+                <li class="list-group-item"><a href="http://www.github.com/bagasabisena"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                <li class="list-group-item"><a href="http://www.instagram.com/bagasabisena"><i class="fa fa-instagram fa-lg"></i> Instagram</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://www.abisena.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/android.html">
+                            android
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.abisena.me/tag/d3js.html">
+                            d3.js
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.abisena.me/tag/data-visualization.html">
+                            data visualization
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/java.html">
+                            java
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.abisena.me/tag/programming.html">
+                            programming
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10" id="footer-area">&copy; 2015 <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+         <!-- SEO: vcard --> 
+          <address id="hcard-Bagas-Abisena-Swastanto" class="vcard author" style="display:none">
+              <a class="name" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+              <a class="fn" href="http://www.abisena.me/pages/about-me.html" rel="canonical">Bagas Abisena Swastanto</a>
+              <img src="http://www.gravatar.com/avatar/f7b09b54c898a2db1bc7a20c74827bb6.png" alt="photo of " class="photo"/>
+              <span class="title">Software Engineer</span>
+              <span class="org">abisena.me</span>
+              <a class="url" href="http://abisena.me">abisena.me</a>
+              <!-- <a class="email" href="mailto:bagasabisena@gmail.com">bagasabisena@gmail.com</a> -->
+              <span class="address">
+                  <span class="region">Delft</span>
+                  <span class="country-name">Netherlands</span>
+              </span>
+          </address>
+          <span class="powered-by">
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>          </span>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.abisena.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.abisena.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.abisena.me/theme/js/respond.min.js"></script>
+
+    <script src="http://www.abisena.me/theme/js/bodypadding.js"></script>
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://www.abisena.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'bagasabisena',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://www.abisena.me/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bagasabisena'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-57199060-2']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+</body>
+</html>
